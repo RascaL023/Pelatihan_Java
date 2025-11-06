@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+    <title>List Obat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Poppins;
+        }
+
+        a{
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e9f5ec 0%, #f9f9f9 100%);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 35px;
+            color: #257f3e;
+            letter-spacing: .5px;
+            font-weight: 700;
+            position: relative;
+            &::after {
+                content: "";
+                display: block;
+                width: 70%;
+                height: 4px;
+                background-color: #2b9348;
+                margin: 10px auto 0;
+                border-radius: 2px;
+            }
+        }
+
+        main {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .new-btn-container {
+            display: flex;
+            justify-content: right;
+            width: 90%;
+            padding: 10px;
+        }
+
+        .new {
+            background-color: rgb(101, 101, 247);
+            color: white;
+            padding: 12px 20px;
+            &:hover {
+                background-color: rgb(67, 67, 228);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 10px rgba(43,147,72,0.3);
+            }
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        th, td {
+            padding: 16px 20px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #2b9348;
+            color: #ffffff;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr { transition: all 0.25s ease; }
+
+        tr:nth-child(even) { background-color: rgba(245, 249, 245, 0.8); }
+
+        tbody:tr:hover {
+            transform: scale(1.01);
+            background-color: rgba(234, 247, 234, 0.9);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        td {
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.95rem;
+        }
+
+        .aksi {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        button, .aksi > a {
+            border: none;
+            outline: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .edit-btn {
+            background-color: #2b9348;
+            &:hover{
+                transform: translateY(-2px);
+                background-color: #23743a;
+                box-shadow: 0 4px 10px rgba(43,147,72,0.3);
+            }
+        }
+
+        .delete-btn {
+            background-color: #e63946;
+            &:hover {
+                background-color: #c92d38;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 10px rgba(230,57,70,0.3);
+            }
+        }
+
+        /* CSS => ChatGPT + Me :) */
+    </style>
+</head>
+<body>
+    <h1>Daftar Obat Apotek</h1>
+    <main>
+        <div class="new-btn-container">
+            <button class="new" th:onclick="'window.location.href=\'/obat/add\''">+ Tambah Obat</button>
+        </div>
+        <table>
+            <tr>
+                <th>Kode</th>
+                <th>Nama</th>
+                <th>Kategori</th>
+                <th>Stok</th>
+                <th>Harga</th>
+                <th>Supplier</th>
+                <th>Aksi</th>
+            </tr>
+            <tr th:each="item : ${obat}">
+                <td th:text="${item.kode}"></td>
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.kategori}"></td>
+                <td th:text="${item.stok}"></td>
+                <td th:text="${item.harga}"></td>
+                <td th:text="${item.supplier}"></td>
+                <td class="aksi">
+                    <a class="edit-btn" th:href="@{/obat/update/{kode}(kode=${item.kode})}">Edit</a>
+                    <a class="delete-btn" th:href="@{/obat/delete/{kode}(kode=${item.kode})}">Hapus</a>
+                </td>
+            </tr>
+        </table>
+    </main>
+</body>
+</html>

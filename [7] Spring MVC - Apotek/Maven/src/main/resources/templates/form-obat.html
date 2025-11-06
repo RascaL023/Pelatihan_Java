@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Obat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Maple Mono NF", "Poppins", sans-serif;
+        }
+
+        body {
+            background-color: #f6f8fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        main {
+            background: #fff;
+            width: 100%;
+            max-width: 450px;
+            padding: 30px 40px;
+            border-radius: 16px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        main h1 {
+            text-align: center;
+            font-size: 1.6rem;
+            color: #2b9348;
+            margin-bottom: 25px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        label {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 4px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 10px 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: 0.2s ease;
+        }
+
+        input:focus {
+            border-color: #2b9348;
+            outline: none;
+            box-shadow: 0 0 5px rgba(43, 147, 72, 0.2);
+        }
+
+        .btn {
+            margin-top: 18px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            flex: 1;
+            padding: 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .save-btn {
+            background: #2b9348;
+            color: #fff;
+        }
+
+        .save-btn:hover {
+            background: #23763a;
+        }
+
+        .cancel-btn {
+            background: #ccc;
+            color: #333;
+            margin-left: 10px;
+        }
+
+        .cancel-btn:hover {
+            background: #bbb;
+        }
+
+        /* CSS => ChatGPT + Me :) */
+    </style>
+</head>
+<body>
+    <main>
+        <h1 th:text="${up} ? 'Edit Data Obat' : 'Tambah Data Obat'">Form Obat</h1>
+
+        <form th:action="@{/obat/save}" th:object="${obat}" method="post">
+            <input type="text" id="kode" th:field="*{kode}" placeholder="Kode" th:readonly="${up}" required>
+            <input type="text" id="name" th:field="*{name}" placeholder="Nama Obat" required>
+            <input type="text" id="kategori" th:field="*{kategori}" placeholder="Kategori">
+            <input type="number" id="stok" th:field="*{stok}" placeholder="Stok">
+            <input type="number" id="harga" th:field="*{harga}" placeholder="Harga">
+            <input type="text" id="deskripsi" th:field="*{deskripsi}" placeholder="Deskripsi">
+            <input type="text" id="supplier" th:field="*{supplier}" placeholder="Nama Supplier">
+            <input type="text" id="noSupplier" th:field="*{noSupplier}" placeholder="Nomor Supplier">
+            <div class="btn">
+                <button type="submit" class="save-btn"
+                        th:text="${up} ? 'Simpan' : 'Tambah'">Simpan</button>
+                <button type="button" class="cancel-btn"
+                        th:onclick="'window.location.href=\'/obat/list\''">Batal</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
