@@ -1,0 +1,561 @@
+/* ===== Reset sederhana ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    background: #5577ff;
+    padding: 15px 30px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+}
+
+.navbar .logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar .nav-right a {
+    margin-left: 18px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.navbar .nav-right a:hover {
+    text-decoration: underline;
+}
+
+/* ===== GLOBAL ===== */
+body {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f5f7ff;
+    color: #333;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    background: linear-gradient(135deg, #5577ff, #8ea2ff);
+    padding: 80px 50px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+    box-shadow: 0px 8px 18px rgba(0,0,0,0.15);
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.hero h1 span {
+    color: #ffe082;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: auto;
+    opacity: 0.95;
+}
+
+.hero-buttons {
+    margin-top: 30px;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 12px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    display: inline-block;
+    margin: 5px;
+    transition: 0.2s;
+}
+
+.btn-primary {
+    background: #ffe082;
+    color: #333;
+}
+
+.btn-primary:hover {
+    background: #ffcf5f;
+}
+
+.btn-secondary {
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* ===== FEATURE SECTION ===== */
+.features {
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.feature-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    text-align: left;
+    box-shadow: 0px 6px 14px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 12px 20px rgba(0,0,0,0.12);
+}
+
+.feature-card h3 {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+.feature-card p {
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+.btn-small {
+    padding: 8px 18px;
+    background: #5577ff;
+    color: white;
+    font-size: 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.btn-small:hover {
+    background: #425fd1;
+}
+
+
+/* ===== Form Styling ===== */
+.except {
+    padding: 0;
+    margin: 0;
+}
+
+form:not(.except) {
+    max-width: 90%;
+    margin: 1em auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 16px rgba(0,0,0,0.08);
+}
+
+form:not(.except) h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d0d4da;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: 0.2s;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #5577ff;
+    box-shadow: 0 0 0 2px rgba(85, 119, 255, 0.2);
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #5577ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #3b5cff;
+}
+
+
+/* ===== Table Styling ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
+}
+
+thead {
+    background: #5577ff;
+    color: white;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    font-size: 14px;
+}
+
+tbody tr:nth-child(even) {
+    background: #f1f4ff;
+}
+
+tbody tr:hover {
+    background: #e6ebff;
+}
+
+/* ===== Buttons in Table ===== */
+.btn {
+    display: flex;
+    gap: 10px;
+}
+
+.btn button {
+    padding: 8px 12px;
+    background: #5577ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.btn a:hover {
+    background: #3b5cff;
+}
+
+
+/* ============================
+   CARD KELAS BESAR
+=============================== */
+
+.class-list-section {
+    padding: 20px;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    color: #333;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    padding: 10px 20px;
+}
+
+.class-card {
+    background: white;
+    padding: 28px;
+    border-radius: 20px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+    transition: 0.25s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.class-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 24px rgba(0,0,0,0.15);
+}
+
+.class-card h2 {
+    margin: 0 0 12px;
+    font-size: 26px;
+    color: #4256ff;
+}
+
+.class-card p {
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    min-height: 70px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge {
+    background: #eef0ff;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #4256ff;
+}
+
+.arrow {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4256ff;
+    transition: 0.2s ease;
+}
+
+.class-card:hover .arrow {
+    transform: translateX(6px);
+}
+
+/* FORM SECTION */
+.form-section {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.styled-form {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.styled-form label {
+    font-weight: 600;
+    color: #555;
+}
+
+.styled-form input,
+.styled-form select,
+.styled-form textarea {
+    padding: 12px 14px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.styled-form input:focus,
+.styled-form textarea:focus,
+.styled-form select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 4px rgba(52,152,219,0.4);
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* BUTTONS */
+.btn-primary {
+    background: #3498db;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #2980b9;
+}
+
+.btn-secondary {
+    background: #666;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background: #555;
+}
+
+.back-btn-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* ============================
+   DETAIL SECTION
+============================ */
+.detail-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Judul halaman */
+.page-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* ============================
+   DETAIL CARD
+============================ */
+.detail-card {
+    background: #ffffff;
+    padding: 25px 25px;
+    border-radius: 14px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    margin-bottom: 40px;
+}
+
+/* Row per atribut */
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+/* Label & value */
+.label {
+    font-weight: bold;
+    color: #333;
+}
+
+.value {
+    color: #444;
+}
+
+/* Tombol aksi */
+.action-buttons {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: 0.2s ease;
+}
+
+.btn-primary {
+    background: #4b7bec;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #3867d6;
+}
+
+.btn-secondary {
+    background: #dfe4ea;
+    color: #2f3542;
+}
+
+.btn-secondary:hover {
+    background: #ced6e0;
+}
+
+/* ============================
+   TABEL PESERTA
+============================ */
+.sub-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* table wrapper */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+}
+
+.styled-table thead {
+    background: #4b7bec;
+    color: white;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #eee;
+}
+
+/* hover row */
+.styled-table tbody tr:hover {
+    background: #f1f2f6;
+}
+
+/* row kosong */
+.empty-info {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: #666;
+}
+

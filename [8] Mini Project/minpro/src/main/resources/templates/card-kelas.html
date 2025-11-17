@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Daftar Kelas</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div th:replace="fragments/header :: navbar"></div>
+
+<section class="class-list-section">
+
+    <h1 class="page-title">Daftar Kelas</h1>
+
+    <div class="cards-container">
+
+        <!-- CARD KELAS -->
+        <div class="class-card"
+             th:each="item : ${kelas}"
+	     th:onclick="|window.location.href='@{/peserta/tambah/{kode}(kode=${item.kode})}'|">
+
+            <h2 th:text="${item.nama}"></h2>
+            <p th:text="${item.deskripsi}"></p>
+
+            <div class="card-footer">
+                <span class="badge">Kode: <b th:text="${item.kode}"></b></span>
+                <span class="arrow">➜</span>
+            </div>
+        </div>
+ 
+    </div> 
+
+</section>
+
+</body>
+</html>
+

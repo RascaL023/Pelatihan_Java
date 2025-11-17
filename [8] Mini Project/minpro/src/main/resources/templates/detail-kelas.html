@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detail Kelas</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div th:replace="fragments/header :: navbar"></div>
+
+<section class="detail-section">
+
+    <h1 class="page-title" th:text="'Detail Kelas: ' + ${kelas.nama}"></h1>
+
+    <!-- CARD DETAIL KELAS -->
+    <div class="detail-card">
+
+        <div class="detail-row">
+            <span class="label">Kode Kelas:</span>
+            <span class="value" th:text="${kelas.kode}"></span>
+        </div>
+
+        <div class="detail-row">
+            <span class="label">Nama Kelas:</span>
+            <span class="value" th:text="${kelas.nama}"></span>
+        </div>
+
+        <div class="detail-row">
+            <span class="label">Deskripsi:</span>
+            <span class="value" th:text="${kelas.deskripsi}"></span>
+        </div>
+
+        <div class="detail-row">
+            <span class="label">Kapasitas:</span>
+            <span class="value" th:text="${kelas.kapasitas}"></span>
+        </div>
+
+        <div class="detail-row">
+            <span class="label">Jumlah Peserta:</span>
+            <span class="value" th:text="${kelas.jumlahPeserta}"></span>
+        </div>
+
+        <div class="detail-row">
+            <span class="label">Harga:</span>
+            <span class="value">Rp <span th:text="${kelas.harga}"></span></span>
+        </div>
+
+        <div class="action-buttons">
+            <a th:href="@{/kelas}" class="btn-secondary">Kembali</a>
+            <a th:href="@{/peserta/tambah/{kode}(kode=${kelas.kode})}" class="btn-primary">Daftar Peserta Baru</a>
+            <a th:href="@{/peserta/daftar/{kode}(kode=${kelas.kode})}" class="btn-primary">Hapus Peserta</a>
+        </div>
+    </div>
+
+
+    <!-- DAFTAR PESERTA -->
+    <h2 class="sub-title">Daftar Peserta</h2>
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama Peserta</th>
+                <th>Email</th>
+                <th>No. HP</th>
+            </tr>
+        </thead>
+
+        <tbody>
+	    <tr th:each="p, iter : ${peserta}">
+                <td th:text="${iter.count}"></td>
+                <td th:text="${p.nama}"></td>
+                <td th:text="${p.email}"></td>
+                <td th:text="${p.hp}"></td>
+            </tr>
+
+            <tr th:if="${#lists.isEmpty(peserta)}">
+                <td colspan="4" class="empty-info">Belum ada peserta terdaftar.</td>
+            </tr>
+        </tbody>
+    </table>
+
+</section>
+
+</body>
+</html>
+

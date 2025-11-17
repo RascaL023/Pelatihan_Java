@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Daftar Peserta</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div th:replace="fragments/header :: navbar"></div>
+
+<section class="form-section">
+
+    <h1 class="page-title" th:text="'Daftar Peserta untuk Kelas: ' + ${kelas.nama}"></h1>
+
+	<form class="styled-form" th:action="@{/peserta/simpan/{kode}(kode=${kelas.kode})}" method="post" th:object="${peserta}">
+
+        <label>Nama Lengkap:</label>
+        <input type="text" th:field="*{nama}" placeholder="Masukkan nama peserta" required>
+
+        <label>Email:</label>
+        <input type="email" th:field="*{email}" placeholder="example@mail.com" required>
+
+        <label>No. HP:</label>
+        <input type="text" th:field="*{hp}" placeholder="08xxxxxxxxxx" required>
+
+        <button type="submit" class="btn-primary full-width">Daftar Sekarang</button>
+
+    </form>
+
+    <div class="back-btn-container">
+        <a th:href="@{/kelas/detail/{kode}(kode=${kelas.kode})}" class="btn-secondary">
+            Kembali ke Detail Kelas
+        </a>
+    </div>
+
+</section>
+
+</body>
+</html>
+

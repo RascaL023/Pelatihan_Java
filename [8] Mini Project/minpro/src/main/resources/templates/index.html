@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Class One</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+    <!-- Header -->
+    <div th:replace="fragments/header :: navbar"></div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Selamat Datang di <span>ClassOne</span></h1>
+            <p>Platform sederhana untuk mengelola kelas, peserta, dan pendaftaran secara cepat & praktis.</p>
+
+            <div class="hero-buttons">
+                <a th:href="@{/kelas/list}" class="btn-primary">Daftar Sekarang</a>
+                <a th:href="@{/kelas/tambah}" class="btn-secondary">Tambah Kelas Baru</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURE SECTION -->
+    <section class="features">
+        <h2>Fitur Utama</h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <h3>Detail Kelas</h3>
+                <p>Lihat informasi lengkap berupa kapasitas, harga, dan daftar peserta.</p>
+                <a th:href="@{/kelas}" class="btn-small">Detail Kelas</a>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
+

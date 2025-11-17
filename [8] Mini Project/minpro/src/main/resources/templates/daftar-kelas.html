@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Daftar Kelas</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div th:replace="fragments/header :: navbar"></div>
+
+    <table>
+        <thead>
+            <th>No</th>
+            <th>Kode</th>
+            <th>Nama</th>
+            <th>Deskripsi</th>
+            <th>Kapasitas</th>
+            <th>Harga</th>
+            <th>Aksi</th>
+        </thead>
+        <tbody>
+            <tr th:each="item, iter : ${kelas}">
+                <td th:text="${iter.count}"></td>
+                <td th:text="${item.kode}"></td>
+                <td th:text="${item.nama}"></td>
+                <td th:text="${item.deskripsi}"></td>
+                <td th:text="${item.kapasitas}"></td>
+                <td th:text="${item.harga}"></td>
+                <td>
+                    <div class="btn">
+			<button th:onclick="|window.location.href='@{/kelas/detail/{kode}(kode=${item.kode})}'|">Detail</button> 
+			<button th:onclick="|window.location.href='@{/peserta/tambah/{kode}(kode=${item.kode})}'|">Daftar</button> 
+			<button th:onclick="|window.location.href='@{/kelas/hapus/{kode}(kode=${item.kode})}'|">Hapus</button> 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

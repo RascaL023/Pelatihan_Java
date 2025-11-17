@@ -1,0 +1,14 @@
+<!-- fragments/header.html -->
+<header th:fragment="navbar">
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="/" class="logo">ClassOne</a>
+        </div>
+
+        <div class="nav-right">
+            <a th:href="@{/kelas}">Daftar Kelas</a>
+            <a th:href="@{/kelas/tambah}">Tambah Kelas</a>
+        </div>
+    </nav>
+</header>
+
