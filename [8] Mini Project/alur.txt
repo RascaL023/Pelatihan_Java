@@ -1,0 +1,19 @@
+Alur:
+Saat pertama kali dibuka, akan menampilkan landing page sederhana yang tentu saja cssnya dari AI.
+Disana terdapat opsi2 yang masih campur antara user/guest dengan admin.
+Terdapat header yang membawa navigasi tambah kelas dan daftar kelas, lalu ada tombol cta di bagian hero dan bagian card fitur 
+yang sebenarnya juga sama saja seperti di navigasi, kecuali satu button daftar yang akan menampilkan daftar kelas berbentuk card.
+
+Di bagian daftar kelas, akan menampilkan tabel info singkat kelas yang tersedia beserta tombol aksi detail - daftar - hapus. Detail akan menampilkan
+rincian kelas beserta peserta2 yang terdaftar, kemudian tombol2 pembantu seperti tambah peserta, kembali, dan hapus peserta. Hapus peserta 
+mengacu pada email peserta yang mana sengaja dibuat unique untuk satu kelas. Tambah peserta akan mengarahkan ke form input data peserta yang 
+selanjutnya akan redirect ke detail kelas(kalo gak salah :v). 
+
+Adapun halaman tambah kelas yang seharusnya milik admin, halaman ini akan menampilkan form input data kelas yang selanjutnya redirect ke 
+daftar kelas.
+
+Untuk bagian validasi inputan, kebanyakan masih menggunakkan validasi dari html langsung, karena waktu pengerjaan yang terlalu lama, 
+dikarenakan saya ingin benar - benar paham gmn konsep dan pengaliran data berlangsung di dunia spring boot java ini. Untuk validasi duplikat
+email, duplikasi kode kelas, logika tambah - kurang peserta dan kuota yang tersedia, sudah pakai java langsung, 
+walau sebenarnya penataan method masih kurang rapi karena terburu - buru. Untuk dependency masih menggunakkan yang biasa2 saja, belum pakai 
+Lombok.
