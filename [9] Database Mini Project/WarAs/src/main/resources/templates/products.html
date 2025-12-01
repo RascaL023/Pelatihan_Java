@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Warehouse Aswan</title>
+  <link rel="stylesheet" th:href="@{/css/animation.css}">
+  <link rel="stylesheet" th:href="@{/css/popup.css}">
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+  <header th:replace="~{fragments/header :: header}"></header>
+  
+  <main>
+    <h1 class="page-title">Daftar produk</h1>
+    <table class="products-table">
+      <thead>
+        <th>No.</th>
+        <th>ID</th>
+        <th>Nama</th>
+        <th>Harga</th>
+        <th>Stok</th>
+        <th>Ditambahkan</th>
+        <th>Aksi</th>
+      </thead>
+      <tbody>
+        <tr th:each="product, i : ${products}">
+          <td th:text="${i.count}"></td>
+          <td th:text="${product.id}"></td>
+          <td th:text="${product.name}"></td>
+          <td>Rp. <span th:text="${product.price}"></span></td>
+          <td th:text="${product.stock}"></td>
+          <td th:text="${#temporals.format(product.createdAt, 'dd/MM/yyyy - HH:mm')}"></td>
+          <td class="btn-container">
+            <a th:href="@{/products/edit/{id}(id=${product.id})}">Edit</a>
+            <a 
+              th:href="@{/products/delete/{id}(id=${product.id})}"
+              onclick="return confirm('Yakin ingin menghapus produk ini?');">
+                Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+  <div th:insert="~{fragments/popup :: popup(${status}, ${message})}"></div>
+
+  <script th:src="@{/js/popup.js}"></script>
+</body>
+</html>

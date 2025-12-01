@@ -1,0 +1,14 @@
+<header th:fragment="header">
+  <h2 class="title">WarAs</h2>
+  <nav class="nav">
+    <a th:href="@{/products/add}">Tambah produk</a>
+    <a th:href="@{/products}">List produk</a>
+  </nav>
+  <form th:action="@{/products}" method="get">
+    <input type="text" name="keyword"
+           placeholder="Cari Produk.."
+           th:value="${keyword}"
+           class="search-input">
+    <button type="submit" class="search-btn">Cari</button>
+  </form>
+</header>
