@@ -1,0 +1,21 @@
+<header th:fragment="header">
+  <h2 class="main-title">Student Managements</h2>
+  <nav class="nav">
+    <button 
+      hx-get="/students/add" 
+      hx-target="#mainContainer"
+      hx-swap="innerHTML">Add Student</button>
+    <button
+      hx-get="/students/list"
+      hx-target="#mainContainer"
+      hx-swap="innerHTML">List Mahasiswa</button>
+    <input 
+      type="text"
+      name="q"
+      hx-get="/students/search"
+      hx-trigger="keyup changed delay:300ms"
+      hx-target="#mainContainer"
+      placeholder="Cari nama..."
+      class="search-input"/>
+  </nav>
+</header>

@@ -1,0 +1,12 @@
+<form th:fragment="addForm"
+      th:object="${student}"
+      hx-post="/students/add">
+    <h3 class="form-title">Tambah Mahasiswa Baru</h3>
+    <input type="text" th:field="*{name}" placeholder="Nama"><br>
+    <input type="email" th:field="*{email}" placeholder="Email"><br>
+    <input type="text" th:field="*{major}" placeholder="Jurusan"><br>
+    <input type="number" th:field="*{registrationYear}" placeholder="Tahun daftar"><br>
+    <button type="submit" class="submit-btn">Submit</button>
+  <!-- <div th:insert="~{fragments/popup :: popup(${status}, ${msg})}"></div> -->
+
+</form>

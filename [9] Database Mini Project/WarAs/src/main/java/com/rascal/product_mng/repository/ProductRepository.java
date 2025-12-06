@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.rascal.product_mng.entity.Product;
 
 @Repository
-public interface ProductRepository extends JpaRepository <Product, Long>{
+public interface ProductRepository extends JpaRepository<Product, Long> {
   List<Product> findAllByNameContaining(String keyword);
 }

@@ -1,0 +1,84 @@
+<div id="studentLists" th:fragment="student-list">
+  <div class="table-header-container">
+    <h2 class="table-title">List Mahasiswa</h2>
+  </div>
+  <table class="list-table">
+    <thead>
+      <th>ID</th>
+      <th>Nama</th>
+      <th>Jurusan</th>
+      <th>Tahun daftar</th>
+      <th>Email</th>
+      <th>Dibuat</th>
+      <th>Aksi</th>
+    </thead>
+    <tbody>
+      <tr th:each="student : ${students}">
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.major}"></td>
+        <td th:text="${student.registrationYear}"></td>
+        <td th:text="${student.email}"></td>
+        <td th:text="${#temporals.format(student.createdAt, 'dd/MM/yy - HH:mm')}"></td>
+        <!-- <td th:text="${#temporals.format(product.createdAt, 'dd/MM/yyyy - HH:mm')}"></td> -->
+        <td>
+          <button
+            th:attr="hx-get=@{/students/edit/{id}(id=${student.id})}"
+            hx-swap="innerHTML"
+            hx-target="#mainContainer">
+            Edit</button>
+          <button
+            th:attr="hx-post=@{/students/delete/{id}(id=${student.id})}"
+            hx-swap="innerHTML"
+            hx-target="#mainContainer">
+            Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-panel">
+    <button
+      class="prev-btn"
+      hx-target="#studentLists"
+      hx-swap="innerHTML"
+      th:classappend="${curr == 0} ? ' disabled'"
+      th:if="${curr > 0}"
+      th:attr="hx-get=@{/students/list(page=${curr - 1}, size=7)}">
+    Prev</button>
+
+    <button
+      class="prev-btn disabled"
+      th:if="${curr == 0}">
+    Prev</button>
+
+
+    <div class="page-btn-container">
+      <span th:each="i : ${#numbers.sequence(0, pageTotal - 1)}">
+        <button
+          class="page-btns"
+          th:text="${i + 1}"
+          th:classappend="${i == curr} ? 'activePage'"
+          th:attr="hx-get=@{/students/list(page=${i}, size=7)}"
+          hx-target="#studentLists"
+          hx-swap="innerHTML"
+        ></button>
+      </span>
+    </div>
+
+    <button
+      class="next-btn"
+      th:if="${curr < pageTotal - 1}"
+      th:attr="hx-get=@{/students/list(page=${curr + 1}, size=7)}" 
+      hx-target="#studentLists"
+      hx-swap="innerHTML"
+      th:classappend="${curr == pageTotal - 1} ? ' disabled'">
+    Next</button>
+
+    <button
+      class="next-btn disabled"
+      th:if="${curr == pageTotal - 1}">
+    Next</button>
+  </div>
+  <!-- <div th:insert="~{fragments/popup :: popup(${status}, ${msg})}"></div> -->
+</div>

@@ -1,0 +1,10 @@
+<div 
+  th:if="${msg}"
+  th:fragment="popup(status, msg)"
+  class="popup-container">
+  <div class="popup-box slide-right" 
+       th:classappend="' popup-' + ${status}">
+      <h3><span th:text="${status}"></span>!</h3>
+      <p th:text="${msg}"></p>
+  </div>
+</div>

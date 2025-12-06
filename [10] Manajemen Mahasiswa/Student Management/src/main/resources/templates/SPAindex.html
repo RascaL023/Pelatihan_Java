@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mahasiswa</title>
+    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <header th:replace="~{fragments/header :: header}"></header>
+
+    <main id="mainContainer">
+      <div id="student-list"
+           hx-get="/students/list?page=0&size=6"
+           hx-trigger="load"
+           hx-target="#student-list"
+           hx-swap="outerHTML">
+          Loading students...
+      </div>
+    </main>
+
+    <!-- <div th:insert="~{fragments/popup :: popup(${status}, ${msg})}"></div> -->
+    <!-- <div id="popup-container"></div> -->
+
+    <!-- <script th:src="@{/js/script.js}"></script> -->
+</body>
+</html>
+

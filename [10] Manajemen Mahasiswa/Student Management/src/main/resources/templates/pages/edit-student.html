@@ -1,0 +1,16 @@
+<form th:fragment="editForm"
+    th:object="${student}"
+    th:attr="hx-post=@{/students/edit/{id}(id=${id})}">
+  <h3 class="form-title">Edit Mahasiswa ID <span th:text="${id}"></span></h3>
+  <input type="text" th:field="*{name}" placeholder="Nama"><br>
+  <input type="email" th:field="*{email}" placeholder="Email"><br>
+  <input type="text" th:field="*{major}" placeholder="Jurusan"><br>
+  <input type="number" th:field="*{registrationYear}" placeholder="Tahun daftar"><br>
+  <button type="submit" class="submit-btn">Submit</button>
+    <!-- <div th:if="${status}"> -->
+    <!--     <script> -->
+    <!--         alert("Hello"); -->
+    <!--     </script> -->
+    <!-- </div> -->
+  <!-- <div th:insert="~{fragments/popup :: popup(${status}, ${msg})}"></div> -->
+</form>
