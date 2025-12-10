@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Class</title>
+</head>
+<body>
+  <header th:replace="~{/fragments/header :: header}"></header>
+  <h2 class="form-title">Tambah Kelas</h2>
+  <form action="/classes/add"
+        method="post"
+        th:object="${classes}">
+      <input type="text" th:field="*{name}" placeholder="Nama">
+      <input type="text" th:field="*{description}" placeholder="Deskripsi">
+      <button type="submit">Tambah</button>
+  </form>
+</body>
+</html>

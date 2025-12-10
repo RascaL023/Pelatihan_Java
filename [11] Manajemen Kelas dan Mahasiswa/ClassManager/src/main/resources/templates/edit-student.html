@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Student</title>
+</head>
+<body>
+    <header th:replace="~{/fragments/header :: header}"></header>
+
+    <h3 class="form-title">Edit Mahasiswa ID <span th:text="${id}"></span></h3>
+    <form th:object="${student}"
+      th:action="@{/students/edit/{id}(id=${id})}"
+      method="post">
+      <input type="text" th:field="*{name}" placeholder="Nama"><br>
+      <input type="email" th:field="*{email}" placeholder="Email"><br>
+      <select th:field="*{classId}">
+        <option value="">Pilih Kelas</option>
+        <option th:each="c : ${classList}"
+                th:text="${c.className}"
+                th:value="${c.classId}">
+        </option>
+      </select>
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+</body>
+</html>
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>PUB Course</title>
+</head>
+<body>
+    <header th:replace="~{/fragments/header :: header}"></header>
+
+    <section class="hero">
+      <div class="content">
+        <h1>Belajar Programming dengan Cara yang Lebih Mudah</h1>
+        <p>
+          PUB Programming Course hadir untuk membimbingmu memahami dunia
+          pemrograman dari dasar hingga mahir, melalui kurikulum yang terstruktur dan instruktur berpengalaman.
+        </p>
+        <a class="cta" th:href="@{/students/add}">Mulai Belajar</a>
+      </div>
+      <div class="illustration"></div>
+    </section>
+ 
+    <section class="features">
+      <h2>Mengapa Harus PUB Course?</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Kurikulum Terarah</h3>
+          <p>Materi disusun bertahap sehingga pemula pun bisa memahami dari nol.</p>
+        </div>
+        <div class="card">
+          <h3>Instruktur Berpengalaman</h3>
+          <p>Dibimbing langsung oleh programmer aktif di industri.</p>
+        </div>
+        <div class="card">
+          <h3>Belajar dengan Praktik</h3>
+          <p>Setiap topik dilengkapi latihan dan projek nyata.</p>
+        </div>
+      </div>
+    </section>
+</body>
+</html>

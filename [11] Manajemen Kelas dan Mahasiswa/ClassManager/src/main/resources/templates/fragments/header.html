@@ -1,0 +1,11 @@
+<header th:fragment="header">
+  <link rel="stylesheet" th:href="@{/css/style.css}"/>
+  
+  <h2 class="title"><a th:href="@{/}">PUB Programming Course</a></h2>
+  <ul class="nav">
+    <li><a th:href="@{/students}">List Mahasiswa</a></li>
+    <li><a th:href="@{/students/add}">Tambah Mahasiswa</a></li>
+    <li><a th:href="@{/classes}">List Kelas</a></li>
+    <li><a th:href="@{/classes/add}">Tambah Kelas</a></li>
+  </ul>
+</header>

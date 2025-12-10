@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Detail Class</title>
+</head>
+<body>
+    <header th:replace="~{/fragments/header :: header}"></header>
+
+    <h2 class="detail-title">
+      <span>[<span th:text="${detailedClass.id}"></span>] </span>
+      <span th:text="${detailedClass.name}"></span>
+    </h2>
+    <div class="detail-content">
+      <p th:text="${detailedClass.description}"></p> <br>
+      <p>
+        Total Mahasiswa: <span th:text="${detailedClass.getTotalStudents}"></span> <br>
+        Tanggal dibuat : <span th:text="${detailedClass.createdAt}"></span>
+      </p>
+    </div>
+
+    <div class="student-list">
+      <h3 class="table-title">Daftar Mahasiswa</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="student, i : ${detailedClass.students}">
+            <td th:text="${i.count}"></td>
+            <td th:text="${student.name}"></td>
+            <td th:text="${student.email}"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</body>
+</html>

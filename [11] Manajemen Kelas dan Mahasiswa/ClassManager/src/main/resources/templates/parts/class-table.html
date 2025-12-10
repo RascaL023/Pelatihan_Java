@@ -1,0 +1,73 @@
+<main th:fragment="tables" id="classTable" class="main-content">
+  <header th:replace="~{/fragments/header :: header}"></header>
+  <h2>Class Lists</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama Kelas</th>
+        <th>Total Mahasiswa</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="c, i : ${classes}"> 
+        <td th:text="${i.count}"></td>
+        <td th:text="${c.name}"></td>
+        <td th:text="${c.getTotalStudents}"></td>
+        <td>
+          <a th:href="@{/classes/edit/{id}(id=${c.id})}" class="edit-btn">Edit</a>
+          <a class="delete-btn"
+            th:attr="hx-post=@{/classes/delete/{id}(id=${c.id})}"
+            hx-confirm="Yakin hapus kelas ini?"
+            hx-target="#classTable" href=""
+          >Delete</a>
+          <a th:href="@{/classes/detail/{id}(id=${c.id})}" class="edit-btn">Detail</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-control-container">
+    <button
+      th:if="${!first}"
+      class="prev-btn"
+      th:attr="hx-get=@{/classes(page=${currPage - 1}, size=10)}"
+      hx-swap="outerHTML"
+      hx-target="#classTable"
+      th:classappend="${first} ? ' disabled'">
+    Prev</button>
+
+    <button th:if="${first}" 
+      class="prev-btn disabled">
+    Prev</button>
+
+    <div class="page-btn-container">
+      <span th:each="i : ${#numbers.sequence(0, totalPages - 1)}">
+        <button
+          class="page-btns"
+          th:text="${i + 1}"
+          th:classappend="${i == currPage} ? 'activePage'"
+          th:attr="hx-get=@{/classes(page=${i}, size=10)}"
+          hx-target="#classTable"
+          hx-swap="innerHTML"
+        ></button>
+      </span>
+    </div>
+
+
+    <button
+      th:if="${!last}"
+      class="next-btn"
+      th:attr="hx-get=@{/classes(page=${currPage + 1}, size=10)}" 
+      hx-target="#classTable"
+      hx-swap="outerHTML"
+      th:classappend="${last} ? ' disabled'">
+    Next</button>
+
+    <button
+      class="next-btn disabled"
+      th:if="${last}">
+    Next</button>
+  </div> 
+</main>
